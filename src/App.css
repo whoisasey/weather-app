@@ -2,10 +2,19 @@
   --border: 5px solid white;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;800&family=Teko&display=swap');
 
 body {
   background-color: #eef6fb;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+p {
+  font-size: 1.5rem;
+}
+h2 {
+  text-transform: uppercase;
+  font-weight: lighter;
 }
 
 h3 {
@@ -14,6 +23,7 @@ h3 {
 
 .border {
   border: var(--border) !important;
+  border-radius: 15px !important;
 }
 .border-top {
   border-top: var(--border) !important;
@@ -21,4 +31,8 @@ h3 {
 
 .forecast > div:nth-child(-n + 3) {
   border-right: var(--border);
+}
+
+.fw-bold {
+  color: #5fb0e8 !important;
 }

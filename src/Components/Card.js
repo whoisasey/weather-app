@@ -9,7 +9,7 @@ const weatherDescription = (day) => {
   if (getDate(day) === today) {
     return <div className='d-flex align-items-center'>{getWeatherType(day)}
       <div className="d-flex flex-column p-3">
-        <h3 className='display-5'>{ day.tempmax} &#176;</h3>
+        <h3 className='display-4'>{ Math.round(day.tempmax)} &#176;</h3>
         <p>{day.conditions}</p>
       </div>
     </div>;
@@ -18,7 +18,7 @@ const weatherDescription = (day) => {
     return (
       <div className="d-flex flex-column align-items-center justify-content-center">
         {getWeatherType(day)}
-        <h3 className='display-6'>{day.tempmax} &#176;</h3>
+        <h3 className='display-6'>{Math.round(day.tempmax)} &#176;</h3>
       </div>
     );
   }
