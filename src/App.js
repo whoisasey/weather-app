@@ -9,6 +9,7 @@ const cities = [
 ]
 
 const App = () => {
+  const [active, setActive] = useState(false)
   const [location, setLocation] = useState('Toronto')
   const [data, setData] = useState([]);
   const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/next7days?unitGroup=metric&include=days%2Ccurrent&key=${process.env.REACT_APP_API_KEY}&contentType=json`;
@@ -28,8 +29,10 @@ const App = () => {
   }, [url]);
 
 
-const getWeatherInputs = ({ target  }) => {
+const getWeatherInputs = ( { target  }, city) => {
   setLocation(target.textContent);
+  // console.log(city);
+  setActive(!active)
   };
 
 
@@ -58,13 +61,17 @@ const getWeatherInputs = ({ target  }) => {
   };
   return (
     <div className="container d-flex just-content-center align-items-center flex-column mt-4">
-      <div className="d-flex">
-        {cities.map(((city, i) => (
-        <h4 onClick={(e) => getWeatherInputs(e)} key={i} className="mx-4">{ city}</h4>
-        )))}
+      <div className="d-flex my-4">
+        {cities.map((city, i) => (
+          <h2 onClick={(e)=>getWeatherInputs(e, city)} key={i} className={`mx-4 ${active == city && 'fw-bold'}`}>
+            {city}
+          </h2>
+        ))}
       </div>
-      {getToday(data)}
-      <div className="d-flex">{displayWeather(data)}</div>
+      <div className="border border-white rounded">
+        {getToday(data)}
+        <div className="d-flex forecast">{displayWeather(data)}</div>
+      </div>
     </div>
   );
 }

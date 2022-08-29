@@ -1,0 +1,24 @@
+:root {
+  --border: 5px solid white;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
+
+body {
+  background-color: #eef6fb;
+}
+
+h3 {
+  font-family: 'Teko', sans-serif;
+}
+
+.border {
+  border: var(--border) !important;
+}
+.border-top {
+  border-top: var(--border) !important;
+}
+
+.forecast > div:nth-child(-n + 3) {
+  border-right: var(--border);
+}
