@@ -1,8 +1,8 @@
 import './App.css';
 import React, {useEffect, useState} from 'react'
-import clouds from './assets/icons8-cloud-48.png'
-import rain from './assets/icons8-rainfall-48.png'
-import sun from './assets/icons8-sun-48.png'
+
+import { today } from './helpers';
+import Card from './Components/Card';
 
 const App=()=> {
   const [data, setData] = useState([]);
@@ -20,7 +20,7 @@ const App=()=> {
       }
     };
     getWeather();
-  }, []);
+  }, [url]);
 
   // console.log(data);
 
@@ -41,30 +41,13 @@ const App=()=> {
 
   // };
 
-  const getWeatherType = (day) => {
-    // console.log(day);
-    if (day.icon === 'partly-cloudy-day') {
-      return (<img src={ clouds}alt="" />)
-    }
-    if (day.icon === 'rain') {
-      return (<img src={ rain} alt="" />)
-    }
-    if (day.icon === 'clear-day') {
-      return (<img src={ sun} alt="" />)
-    }
-  }
 
 
   const getToday = (data) => {
-    const today = new Date().toISOString().split('T')[0];
     if (data.days !== undefined) {
-      return data.days.filter(day => new Date(day.datetime).toISOString().split('T')[0] === today).map(day => {
+      return data.days.filter(day => new Date(day.datetime).toISOString().split('T')[0] === today).map((day,i) => {
         return (
-          <div>
-            <p>Today</p>
-            <p>{day.tempmax} C</p>
-            {getWeatherType(day)}
-          </div>
+          <Card day={day} key={i} />
         );
       });
     }
@@ -76,13 +59,9 @@ const App=()=> {
     // map over and if the index of each matches each other, render data
 
     if (data.days !== undefined) {
-      return data.days.slice(2,6).map(day => {
+      return data.days.slice(2,6).map((day, i) => {
         return (
-          <div>
-            <p>{new Date(day.datetime).toLocaleString('default', { weekday: 'long' })}</p>
-            <p>{day.tempmax} C</p>
-            {getWeatherType(day)}
-          </div>
+          <Card day={day} key={i} />
         )
         
       }
