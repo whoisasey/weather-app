@@ -4,13 +4,13 @@ import Card from './Components/Card';
 
 const  cities = [
   'Vancouver',
-  'Bogota',
+  'Bogotá',
   'London'
 ]
 
 const App = () => {
-  const [active, setActive] = useState('Toronto')
-  const [location, setLocation] = useState('Toronto')
+  const [active, setActive] = useState(cities[0])
+  const [location, setLocation] = useState(cities[0])
   const [data, setData] = useState([]);
   const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/next7days?unitGroup=metric&include=days%2Ccurrent&key=${process.env.REACT_APP_API_KEY}&contentType=json`;
 
@@ -29,35 +29,35 @@ const App = () => {
   }, [url]);
 
 
-const getWeatherInputs = ( { target  }, city) => {
-  setLocation(target.textContent);
-  setActive(city)
+  // set location of display and active class
+  const getWeatherInputs = ( { target  }, city) => {
+    setLocation(target.textContent);
+    setActive(city)
   };
 
 
+  // get todays weather
   const getToday = (data) => {
     if (data.days !== undefined) {
-
       return data.days.slice(0,1).map((day, i) => {
         return (
           <Card day={day} key={i} />
         );
       });
     }
-    
   }
-  const displayWeather = (data) => {
 
+  // get 4-day forecast
+  const displayWeather = (data) => {
     if (data.days !== undefined) {
       return data.days.slice(2,6).map((day, i) => {
         return (
           <Card day={day} key={i} />
-        )
-        
-      }
-      );
+        ) 
+      });
     }
   };
+
   return (
     <div className="container flex-body mt-4">
       <div className="d-flex my-4">
