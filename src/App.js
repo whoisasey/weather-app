@@ -59,17 +59,20 @@ const App = () => {
   };
 
   return (
-    <div className="container flex-body mt-4">
-      <div className="d-flex my-4">
+    <div className="container flex-body">
+      <div className="cities">
         {cities.map((city, i) => (
-          <h2 onClick={(e)=>getWeatherInputs(e, city)} key={i} className={`mx-4 ${active === city && 'fw-bold'}`}>
+          <h2
+            onClick={(e) => getWeatherInputs(e, city)}
+            key={i}
+            className={`city-header ${active === city && 'fw-bold' ? 'fw-bold' : ''}`}>
             {city}
           </h2>
         ))}
       </div>
-      <div className="border border-white shadow rounded">
+      <div className="border">
         {getToday(data)}
-        <div className="d-flex forecast">{displayWeather(data)}</div>
+        <div className="forecast">{displayWeather(data)}</div>
       </div>
     </div>
   );
