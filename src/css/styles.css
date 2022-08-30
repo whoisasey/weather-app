@@ -1,0 +1,59 @@
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Uw-.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Ew-.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvr70w-.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Teko';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/teko/v15/LYjNdG7kmE0gTaQ.ttf) format('truetype');
+}
+body {
+  background-color: #eef6fb;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+p {
+  font-size: 1.5rem;
+}
+h2 {
+  text-transform: uppercase;
+  font-weight: lighter;
+}
+h2:hover {
+  cursor: pointer;
+}
+h3 {
+  font-family: 'Teko', sans-serif;
+}
+.border {
+  border: 5px solid white !important;
+  border-radius: 15px !important;
+}
+.border-top {
+  border-top: 5px solid white !important;
+}
+.forecast > div:nth-child(-n + 3) {
+  border-right: 5px solid white !important;
+}
+.fw-bold {
+  color: #5fb0e8 !important;
+}
