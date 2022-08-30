@@ -69,3 +69,6 @@ h3 {
 .fw-bold {
   color: #5fb0e8 !important;
 }
+.p-4 {
+  padding: 2.5rem !important;
+}
