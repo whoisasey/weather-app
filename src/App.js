@@ -1,15 +1,15 @@
-import './App.css';
+import './css/styles.css'
 import React, {useEffect, useState} from 'react'
 import Card from './Components/Card';
 
-const cities = [
-  'Toronto',
+const  cities = [
+  'Vancouver',
   'Bogota',
-  'Paris'
+  'London'
 ]
 
 const App = () => {
-  const [active, setActive] = useState(null)
+  const [active, setActive] = useState('Toronto')
   const [location, setLocation] = useState('Toronto')
   const [data, setData] = useState([]);
   const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/next7days?unitGroup=metric&include=days%2Ccurrent&key=${process.env.REACT_APP_API_KEY}&contentType=json`;
@@ -31,7 +31,6 @@ const App = () => {
 
 const getWeatherInputs = ( { target  }, city) => {
   setLocation(target.textContent);
-  // console.log(city);
   setActive(city)
   };
 
