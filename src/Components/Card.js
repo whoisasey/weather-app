@@ -16,7 +16,7 @@ const weatherDescription = (day) => {
   }
   else {
     return (
-      <div className="d-flex flex-column align-items-center justify-content-center">
+      <div className="flex-body">
         {getWeatherType(day)}
         <h3 className='display-6'>{Math.round(day.tempmax)} &#176;</h3>
       </div>
@@ -25,7 +25,7 @@ const weatherDescription = (day) => {
 }
 const Card = ({ day }) => {
   return (
-    <div className={`p-4 mt-4 d-flex flex-column align-items-center justify-content-center ${getDate(day) !== today ? 'border-top border-white': null  }`}>
+    <div className={`p-4 mt-4 flex-body ${getDate(day) !== today ? 'border-top border-white': null  }`}>
       <p>
         {getDate(day) === today
           ? 'Today'

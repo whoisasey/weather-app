@@ -59,7 +59,7 @@ const getWeatherInputs = ( { target  }, city) => {
     }
   };
   return (
-    <div className="container d-flex just-content-center align-items-center flex-column mt-4">
+    <div className="container flex-body mt-4">
       <div className="d-flex my-4">
         {cities.map((city, i) => (
           <h2 onClick={(e)=>getWeatherInputs(e, city)} key={i} className={`mx-4 ${active === city && 'fw-bold'}`}>

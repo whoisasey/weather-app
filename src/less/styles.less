@@ -1,19 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;800&family=Teko&display=swap');
 
+// variables
 @primary-color: #eef6fb;
 @border: 5px solid white !important;
 @primary-font: 'Montserrat', sans-serif;
 @secondary-font: 'Teko', sans-serif;
 @accent-color: #5fb0e8 !important;
 
+// mixins
+.border-radius(@radius) {
+  border-radius: @radius !important;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+// styles
 body {
   background-color: @primary-color;
   font-family: @primary-font;
   font-weight: 400;
 }
+
 p {
   font-size: 1.5rem;
 }
+
 h2 {
   text-transform: uppercase;
   font-weight: lighter;
@@ -26,10 +42,15 @@ h3 {
   font-family: @secondary-font;
 }
 
+.flex-body {
+  .flex-center;
+}
+
 .border {
   border: @border;
-  border-radius: 15px !important;
+  .border-radius(15px);
 }
+
 .border-top {
   border-top: @border;
 }

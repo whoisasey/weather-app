@@ -26,6 +26,12 @@
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/teko/v15/LYjNdG7kmE0gTaQ.ttf) format('truetype');
 }
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 body {
   background-color: #eef6fb;
   font-family: 'Montserrat', sans-serif;
@@ -43,6 +49,12 @@ h2:hover {
 }
 h3 {
   font-family: 'Teko', sans-serif;
+}
+.flex-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .border {
   border: 5px solid white !important;
