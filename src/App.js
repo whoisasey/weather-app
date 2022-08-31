@@ -39,9 +39,9 @@ const App = () => {
   // get todays weather
   const getToday = (data) => {
     if (data.days !== undefined) {
-      return data.days.slice(0,1).map((day, i) => {
+      return data.days.slice(0, 1).map((day, i) => {
         return (
-          <Card day={day} key={i} />
+          <Card day={day} key={i} index={i} />
         );
       });
     }

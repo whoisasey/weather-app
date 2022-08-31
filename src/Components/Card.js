@@ -1,12 +1,8 @@
 import React from 'react'
-import { getWeatherType, today } from '../helpers';
+import { getWeatherType } from '../helpers';
 
-const getDate = (day) => {
-  return new Date((day).datetime).toISOString().split('T')[0];
-};
-
-const weatherDescription = (day) => {
-  if (getDate(day) === today) {
+const weatherDescription = (day, i) => {
+  if (i === 0) {
     return <div className='current-forecast'>{getWeatherType(day)}
       <div className="current-forecast-text">
         <h3 className='display-1'>{ Math.round(day.tempmax)} &#176;</h3>
@@ -23,17 +19,17 @@ const weatherDescription = (day) => {
     );
   }
 }
-const Card = ({ day }) => {
+const Card = ({ day, index }) => {
   return (
     <div className={`card flex-body `}>
       <p>
-        {getDate(day) === today
+        {index === 0
           ? 'Today'
           : new Date(day.datetime).toLocaleString('default', {
               weekday: 'short',
             })}
       </p>
-      {weatherDescription(day)}
+      {weatherDescription(day, index)}
     </div>
   );
 }
