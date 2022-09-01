@@ -2,11 +2,7 @@ import './css/styles.css'
 import React, {useEffect, useState} from 'react'
 import Card from './Components/Card';
 
-const  cities = [
-  'Vancouver',
-  'Bogotá',
-  'London'
-]
+const cities = ['Hanoi', 'Bogotá', 'London'];
 
 const App = () => {
   const [active, setActive] = useState(cities[0])
